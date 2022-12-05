@@ -1,5 +1,6 @@
 import os
 
+
 from app import PetFriends
 from settings import email, password
 
@@ -71,9 +72,11 @@ def test_successful_update_self_pet_info(name='Мурзик', animal_type='Ко�
     _, auth_key = pf.get_api_key(email, password)
     _, my_pets = pf.get_list_of_pets(auth_key, "my_pets")
 
-  
+
     if len(my_pets['pets']) > 0:
         status, result = pf.update_pet_info(auth_key, my_pets['pets'][0]['id'], name, animal_type, age)
+
+
 
 
         assert status == 200
@@ -81,3 +84,11 @@ def test_successful_update_self_pet_info(name='Мурзик', animal_type='Ко�
     else:
 
         raise Exception("There is no my pets")
+
+
+
+
+
+
+
+
